@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<div th:replace="cabecalho :: head"></div>
+
+	<title>Crud Manager - Form Equipe</title>
+</head>
+<body>
+	<div class="container my-2">
+		<h2>Equipes</h2>
+		
+		<form th:action="@{/teams/register}" 
+		      method="POST"
+		      th:object="${equipe}" 
+		      action="#">
+			
+			<input type="hidden" id="id" th:field="*{id}">
+			
+			<span class="text-danger"
+				  th:if="${#fields.hasErrors('name_team')}"
+				  th:errors="*{name_team}">
+			</span>
+			<input type="text" placeholder="Nome" 
+			       class="form-control mb-4 col-4"
+			       th:field="*{name_team}"> 
+			
+			<span class="text-danger"
+				  th:if="${#fields.hasErrors('trainer')}"
+				  th:errors="*{trainer}">
+			</span>
+			<input type="text" placeholder="Treinador" 
+				   class="form-control mb-4 col-4"
+				   th:field="*{trainer}">
+			
+			<span class="text-danger"
+				  th:if="${#fields.hasErrors('quant_athletes')}"
+				  th:errors="*{quant_athletes}">
+			</span>
+			<input type="text" placeholder="Quantidade de atletas" 
+				   class="form-control mb-4 col-4"
+				   th:field="*{quant_athletes}">
+			
+			<select th:field="*{competition}" class="form-control mb-4 col-4">
+			    <option value="" disabled selected>Selecione uma competição</option>
+			    <option th:each="competition : ${competitions}" th:value="${competition.id}" th:text="${competition.name_comp}"></option>
+			</select>
+			<span class="text-danger" th:if="${#fields.hasErrors('competition')}" th:errors="*{competition}"></span>
+			
+			<button type="submit" 
+			        class="btn btn-info col-2">Salvar</button>
+			
+		</form>
+	</div>
+</body>
+</html>

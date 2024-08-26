@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<div th:replace="cabecalho :: head"></div>
+	
+	<title>Crud Manager - Competição</title>
+</head>
+<body>
+	<div class="container my-2">
+		<h1>Competição</h1>
+		<div>
+			<a th:href="@{competitions/form}"
+			   class="btn btn-primary btn-sm mb-3 float-right">Adicionar Competição
+			</a>
+		</div>
+		<table class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Data</th>
+					<th>Local</th>
+					<th>Modalidade</th>
+					<th>Categoria</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="competicao : ${competicoes}">
+					<td th:text="${competicao.getName_comp()}" ></td>
+					<td th:text="${competicao.getDate()}"></td>
+					<td th:text="${competicao.getLocation()}"></td>
+					<td th:text="${competicao.getModality()}"></td>
+					<td th:text="${competicao.getCategory()}"></td>
+					<td>
+						<a th:href="@{/competitions/update/{id}(id = ${competicao.id})}"
+						   class="btn btn-primary">
+							Alterar
+						</a>
+						
+						<a th:href="@{/competitions/delete/{id}(id = ${competicao.id})}"
+						   class="btn btn-danger">
+							Excluir
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

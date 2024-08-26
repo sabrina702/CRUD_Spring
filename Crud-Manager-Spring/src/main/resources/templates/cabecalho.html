@@ -1,0 +1,51 @@
+<th:block th:fragment="head">
+    <meta charset="UTF-8" />
+    <!-- Bootstrap CSS (versão 4) -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+          crossorigin="anonymous">
+    
+    <!-- jQuery (Bootstrap 4 requer jQuery) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+    
+    <!-- Popper.js (requerido pelo Bootstrap 4) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz4fnFO9E7aH1FTtQ8/U6F5TQ9K2PzL0L3wC2Om2X10NfB7Z4sy+XYv1Ub"
+            crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap JS (versão 4) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-Tc5t9nV3D4YcWaa1DQgW4bFJqYgLz5O9sTXb5ILK6T0Feg8x8gVR5fLsf7erHc2Z"
+            crossorigin="anonymous"></script>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+			<a class="navbar-brand" href="#">Menu</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/users}">Usuário</a>
+           			</li>
+				</ul>
+				
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/competitions}">Competição</a>
+           			</li>
+				</ul>
+				
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/teams}">Equipes </a>
+           			</li>
+				</ul>
+			</div>
+		</div>
+    </nav>
+</th:block>

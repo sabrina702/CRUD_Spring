@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+	<div th:replace="cabecalho :: head"></div>
+
+	<title>Crud Manager - Form Competição</title>
+</head>
+<body>
+	<div class="container my-2">
+		<h2>Competições</h2>
+		
+		<form th:action="@{/competitions/register}" 
+		      method="POST"
+		      th:object="${competicao}" 
+		      action="#">
+		      
+		      <input type="hidden" id="id" th:field="*{id}">
+		      
+		      <span class="text-danger"
+				  th:if="${#fields.hasErrors('name_comp')}"
+				  th:errors="*{name_comp}">
+			  </span>
+			  <input type="text" placeholder="Nome" 
+			       class="form-control mb-4 col-4"
+			       th:field="*{name_comp}">
+			  
+			  <span class="text-danger"
+				  th:if="${#fields.hasErrors('date')}"
+				  th:errors="*{date}">
+			  </span>
+			  <input type="text" placeholder="Data" 
+			       class="form-control mb-4 col-4"
+			       th:field="*{date}">
+			  
+			  <span class="text-danger"
+				  th:if="${#fields.hasErrors('location')}"
+				  th:errors="*{location}">
+			  </span>
+			  <input type="text" placeholder="Local" 
+			       class="form-control mb-4 col-4"
+			       th:field="*{location}">
+			       
+			  <span class="text-danger"
+				  th:if="${#fields.hasErrors('modality')}"
+				  th:errors="*{modality}">
+			  </span>
+			  <input type="text" placeholder="Modalidade" 
+			       class="form-control mb-4 col-4"
+			       th:field="*{modality}">    
+			  
+			  <span class="text-danger"
+				  th:if="${#fields.hasErrors('category')}"
+				  th:errors="*{category}">
+			  </span>
+			  <input type="text" placeholder="Categoria" 
+			       class="form-control mb-4 col-4"
+			       th:field="*{category}">
+			       
+			  <button type="submit" 
+			        class="btn btn-info col-2">Salvar</button> 
+		</form>
+	</div>
+</body>
+</html>
